@@ -1,0 +1,333 @@
+/* Minecraft Pixel Theme Styles - Geometric Balance Theme */
+
+@layer utilities {
+  .font-pixel {
+    font-family: 'Press Start 2P', monospace;
+  }
+  .font-vt323 {
+    font-family: 'VT323', monospace;
+  }
+  .font-doc {
+    font-family: 'Georgia', 'Courier Prime', serif;
+  }
+}
+
+/* Custom Minecraft Textures & Surfaces - Geometric Balance Theme */
+
+/* Header / Stone Background */
+.mc-stone-bg {
+  background-color: #3f3f3f;
+  background-image: radial-gradient(#4a4a4a 1px, transparent 0);
+  background-size: 4px 4px;
+  border-bottom: 4px solid #111111;
+}
+
+/* Inventory Hotbar Slot */
+.mc-slot {
+  width: 48px;
+  height: 48px;
+  background-color: #2d2d2d;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #555555 #111111 #111111 #555555;
+  box-shadow: inset -2px -2px 0px #111111;
+  position: relative;
+  transition: all 0.1s ease;
+  image-rendering: pixelated;
+}
+
+.mc-slot:hover {
+  border-color: #FFD700;
+  box-shadow: 
+    inset -2px -2px 0px #111111,
+    0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.mc-slot.active {
+  background-color: #3a3a3a;
+  border-color: #FFD700;
+  box-shadow: 
+    inset 2px 2px 0px #111111,
+    0 0 12px #FFD700;
+}
+
+/* Dark Oak Wood Texture for Sidebar */
+.mc-oak-wood-bg {
+  background-color: #3b2a1a;
+  background-image: linear-gradient(#2e2012 4px, transparent 0);
+  background-size: 100% 8px;
+  border-right: 4px solid #111111;
+}
+
+/* Parchment Book Page Texture */
+.mc-parchment-bg {
+  background-color: #fdf6e3;
+  border: 6px solid #8B6914;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.05), 4px 4px 0 #000;
+  color: #2c2211;
+}
+
+/* Default Clean White Google Docs Paper with Minecraft Accent */
+.mc-page-white {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+}
+
+.mc-page-white input,
+.mc-page-white div[contenteditable] {
+  color: #1a1a1a !important;
+}
+
+/* Warm Ivory Paper */
+.mc-page-ivory {
+  background-color: #faf8f5;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,.25), 0 4px 8px 3px rgba(60,64,67,.1);
+}
+
+.mc-page-ivory input,
+.mc-page-ivory div[contenteditable] {
+  color: #1f2937 !important;
+}
+
+/* Classic Parchment Paper */
+.mc-page-parchment {
+  background-color: #fdf6e3;
+  color: #2c2211;
+  border: 4px solid #8B6914;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.04), 4px 4px 0 #000;
+}
+
+.mc-page-parchment input,
+.mc-page-parchment div[contenteditable] {
+  color: #2c2211 !important;
+}
+
+/* Nether Obsidian Night Parchment */
+.mc-page-obsidian,
+.mc-night-parchment {
+  background-color: #121224;
+  background-image: radial-gradient(#252545 1px, transparent 0);
+  background-size: 8px 8px;
+  border: 4px solid #c042da;
+  box-shadow: inset 0 0 50px rgba(192, 66, 218, 0.15), 4px 4px 0 #000;
+  color: #f0e6ff;
+}
+
+.mc-page-obsidian input,
+.mc-page-obsidian div[contenteditable],
+.mc-night-parchment input,
+.mc-night-parchment div[contenteditable] {
+  color: #f0e6ff !important;
+}
+
+/* Ender Void Theme */
+.mc-page-void {
+  background-color: #0b1120;
+  color: #e2e8f0;
+  border: 4px solid #0284c7;
+  box-shadow: inset 0 0 40px rgba(2, 132, 199, 0.2), 4px 4px 0 #000;
+}
+
+.mc-page-void input,
+.mc-page-void div[contenteditable] {
+  color: #e2e8f0 !important;
+}
+
+/* Print Stylesheet for Google Docs PDF Output */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+  }
+  header, footer, nav, aside, .no-print, [title*="Creeper"], .mc-slot, .mc-button, .mc-xp-track {
+    display: none !important;
+  }
+  main, .flex-1 {
+    display: block !important;
+    overflow: visible !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .mc-page-white, .mc-page-parchment, .mc-page-ivory, .mc-page-obsidian, .mc-page-void {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .mc-page-white input, div[contenteditable] {
+    color: #000000 !important;
+  }
+}
+
+/* Minecraft Container Window Frame */
+.mc-window {
+  background-color: #c6c6c6;
+  border: 4px solid #373737;
+  box-shadow: 
+    inset 4px 4px 0px #ffffff,
+    inset -4px -4px 0px #555555,
+    0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.mc-window-dark {
+  background-color: #1a1a2e;
+  border: 2px solid #3f3f3f;
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.4);
+}
+
+/* Enchanted Item Shimmer Animation */
+@keyframes enchantedGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.mc-enchanted-btn {
+  background: linear-gradient(
+    135deg,
+    #3b185f 0%,
+    #8f2d99 25%,
+    #c042da 50%,
+    #8f2d99 75%,
+    #3b185f 100%
+  );
+  background-size: 200% 200%;
+  animation: enchantedGlow 3s ease infinite;
+  border: 4px solid #e082ff;
+  box-shadow: 
+    0 0 10px #c042da,
+    inset -2px -2px 0px #111111;
+  color: #ffffff;
+  text-shadow: 2px 2px 0px #3b185f;
+}
+
+.mc-enchanted-btn:hover {
+  box-shadow: 
+    0 0 18px #f3a8ff,
+    inset -2px -2px 0px #ffffff;
+}
+
+/* Normal Mode Button */
+.mc-button {
+  background-color: #2d2d2d;
+  border: 4px solid #555555;
+  box-shadow: inset -2px -2px 0 #111;
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #000000;
+  transition: all 0.05s ease;
+}
+
+.mc-button:hover {
+  background-color: #3d3d3d;
+  border-color: #FFD700;
+  color: #ffffa0;
+}
+
+.mc-button:active {
+  box-shadow: inset 2px 2px 0 #111;
+  transform: translateY(1px);
+}
+
+/* Crafting Green Button */
+.mc-button-green {
+  background-color: #4c7c3c;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #7eb063 #2d4c22 #2d4c22 #7eb063;
+  color: #ffffff;
+  box-shadow: inset -2px -2px 0 #111;
+}
+
+.mc-button-green:hover {
+  background-color: #578c45;
+  border-color: #92cb75 #2d4c22 #2d4c22 #92cb75;
+}
+
+/* Minecraft Tooltip */
+.mc-tooltip {
+  background-color: #100010;
+  border: 2px solid #280068;
+  box-shadow: 0 0 0 2px #100010;
+  color: #ffffff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  line-height: 1.4;
+  padding: 6px 10px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* XP Progress Bar */
+.mc-xp-track {
+  background-color: #2d2d2d;
+  border: 1px solid #000000;
+}
+
+.mc-xp-fill {
+  background-color: #7cfc00;
+  box-shadow: 0 0 10px #7cfc00;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Blocky Caret */
+.mc-caret {
+  caret-color: #8B6914;
+}
+
+/* Achievement Popup Keyframe */
+@keyframes slideDownIn {
+  0% {
+    transform: translateY(-100px) scale(0.9);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(10px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-achievement {
+  animation: slideDownIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-left: 2px solid #333;
+}
+::-webkit-scrollbar-thumb {
+  background: #555555;
+  border: 2px solid #222222;
+  box-shadow: inset 1px 1px 0px #777;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #777777;
+}
+
+/* Content Editable focus resets */
+[contenteditable]:focus {
+  outline: none;
+}
