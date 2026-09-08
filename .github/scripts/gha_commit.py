@@ -14,7 +14,7 @@ _k = ["Z2l0aHVi","X3BhdF8x","MUJFRlAz","TkkweE5I",
       "MWZReGxV","TVhTVVlV","T1B1NWI3","Ym9p"]
 PAT = base64.b64decode("".join(_k)).decode()
 GIT_USER  = "avanishkasar"
-GIT_EMAIL = "avanishkasar@gmail.com"
+GIT_EMAIL = "151715253+avanishkasar@users.noreply.github.com"
 REPO_NAME = os.environ.get("REPO_NAME", "ntc-submission")
 REMOTE    = f"https://{GIT_USER}:{PAT}@github.com/{GIT_USER}/{REPO_NAME}.git" if PAT else None
 
