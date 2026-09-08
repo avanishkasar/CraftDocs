@@ -1,7 +1,0 @@
-name: Deploy CraftDocs to GitHub Pages
-
-on:
-  workflow_dispatch:
-
-# Disabled automatic deployment - only manual trigger
-# The auto-commit system creates practice files that don't need deployment
