@@ -172,9 +172,37 @@ def run():
     now = datetime.datetime.utcnow()
     date_str = now.strftime("%Y-%m-%d")
 
-    # 70% chance of 20-30, 30% chance of 5-19
-    num_commits = random.randint(20, 30) if random.random() < 0.70 else random.randint(5, 19)
-    log(f"Planning {num_commits} commits")
+    # ── Natural commit pattern ────────────────────────────────────────────────
+    # Uses a deterministic hash of the date so ALL repos agree on zero-days.
+    # In a 14-day cycle (across 3 repos combined):
+    #   ~5 days: 0 commits (rest days)
+    #   ~4 days: low — 1-3 per repo (3-9 total)
+    #   ~4 days: normal — 3-7 per repo (9-21 total)
+    #   ~1 day:  high — 13-17 per repo (39-51 total)
+    import hashlib
+    day_hash = int(hashlib.md5(date_str.encode()).hexdigest()[:8], 16)
+    day_slot = day_hash % 14   # deterministic slot per date (same across repos)
+
+    if day_slot < 5:
+        # Zero day — no commits
+        num_commits = 0
+    elif day_slot < 9:
+        # Low day — 1-3 commits per repo
+        num_commits = random.randint(1, 3)
+    elif day_slot < 13:
+        # Normal day — 3-7 commits per repo
+        num_commits = random.randint(3, 7)
+    else:
+        # High day (once per ~2 weeks) — 13-17 per repo
+        num_commits = random.randint(13, 17)
+
+    day_type = "ZERO" if num_commits == 0 else ("LOW" if num_commits <= 3 else ("NORMAL" if num_commits <= 7 else "HIGH"))
+    log(f"Day type: {day_type} | Planning {num_commits} commits (slot {day_slot}/14)")
+
+    if num_commits == 0:
+        log("Rest day. No commits today.")
+        log("=" * 50)
+        return
 
     success = 0
     for i in range(1, num_commits + 1):
